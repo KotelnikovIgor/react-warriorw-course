@@ -1,5 +1,5 @@
 import React from "react";
-
+import style from "./App.module.css";
 // function MovieItem(props) {
 //   console.log("Movie itemProps", props);
 //   // const {
@@ -26,7 +26,7 @@ import React from "react";
 
 function Image(props) {
   console.log("Image props", props);
-  return <img src={props.src} alt={props.alt} />;
+  return <img width="100%" src={props.src} alt={props.alt} />;
 }
 
 const movie = {
@@ -37,18 +37,69 @@ const movie = {
     "Documentation and examples for common text utilities to control alignment, wrapping, weight, and more."
 };
 
+// MovieItem = new React.Component()
 class MovieItem extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      show: false,
+      like: false
+    };
+  }
+
+  handlerShowOverview = () => {
+    console.log("show");
+    this.setState({
+      show: !this.state.show
+    });
+  };
+
+  handelLike = () => {
+    console.log("like");
+    this.setState({
+      like: !this.state.like
+    });
+  };
   render() {
     const {
       data: { title, vote_average, image, overview }
     } = this.props;
+    console.log("state: ", this.state);
     console.log("this props", this);
     return (
-      <div>
+      <div style={{ width: "300px" }}>
         <h1>Props movie data</h1>
         <Image src={image} alt={title} />
         <p>{title}</p>
         <p>{vote_average}</p>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <button type="button" onClick={this.handlerShowOverview}>
+            {this.state.show ? "hide" : "show"}
+          </button>
+          <button
+            type="button"
+            onClick={this.handelLike}
+            // className={this.state.like ? "btn__like" : ""}
+            className={
+              this.state.like ? style.btn__like : style.btn__like_dislike
+            }
+            // style={{ background: this.state.like ? "blue" : "white" }}
+          >
+            Like
+          </button>
+        </div>
+        {/* <button
+          type="button"
+          onClick={() => {
+            console.log("show");
+            this.setState({
+              show: false
+            });
+          }}
+        >
+          hide
+        </button> */}
+        {this.state.show ? <p>{overview}</p> : null}
       </div>
     );
   }

@@ -1,0 +1,9 @@
+.btn__like {
+  background: blue;
+  color: white;
+}
+
+.btn__like_dislike {
+  background: white;
+  color: palevioletred;
+}
