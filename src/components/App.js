@@ -12,16 +12,17 @@ class App extends Component {
       moviesWillWatch: []
     };
   }
-  handlerAddWillWatch = item => {
+  handlerAddWillWatch = movie => {
+    // const updateWillWatch = this.state.moviesWillWatch;
     const { moviesWillWatch } = this.state;
     this.setState({
-      moviesWillWatch: [...moviesWillWatch, item]
+      moviesWillWatch: [...moviesWillWatch, movie]
     });
   };
 
-  handlerRemoveWillWatch = item => {
+  handlerRemoveWillWatch = movie => {
     const updateMoviesWillWatch = this.state.moviesWillWatch.filter(el => {
-      return el.id !== item.id;
+      return el.id !== movie.id;
     });
     this.setState({
       moviesWillWatch: updateMoviesWillWatch
