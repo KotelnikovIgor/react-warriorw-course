@@ -1,7 +1,12 @@
 import React from "react";
 import MoviesItem from "../MoviesItem/MoviesItem";
 
-const MovieList = ({ movies, handlerAddWillWatch, handlerRemoveWillWatch }) => {
+const MovieList = ({
+  movies,
+  handlerAddWillWatch,
+  handlerRemoveWillWatch,
+  handlerDeleteMovies
+}) => {
   return (
     <div className="row">
       {movies.map(item => (
@@ -10,6 +15,7 @@ const MovieList = ({ movies, handlerAddWillWatch, handlerRemoveWillWatch }) => {
             item={item}
             handlerAddWillWatch={handlerAddWillWatch}
             handlerRemoveWillWatch={handlerRemoveWillWatch}
+            handlerDeleteMovies={handlerDeleteMovies}
           />
         </div>
       ))}

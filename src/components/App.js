@@ -3,8 +3,6 @@ import { moviesData } from "../moviesData";
 import MovieList from "../components/MovieList/MovieList";
 import MovieListWillWatch from "../components/MovieListWillWatch/MovieListWillWatch";
 
-// import style from "./App.module.css";
-
 class App extends Component {
   constructor() {
     super();
@@ -30,6 +28,15 @@ class App extends Component {
     });
   };
 
+  handlerDeleteMovies = item => {
+    const updateMovies = this.state.movies.filter(el => {
+      return el.id !== item.id;
+    });
+    this.setState({
+      movies: updateMovies
+    });
+  };
+
   render() {
     const { movies, moviesWillWatch } = this.state;
     console.log(this);
@@ -42,6 +49,7 @@ class App extends Component {
               movies={movies}
               handlerAddWillWatch={this.handlerAddWillWatch}
               handlerRemoveWillWatch={this.handlerRemoveWillWatch}
+              handlerDeleteMovies={this.handlerDeleteMovies}
             />
           </div>
           <div className="col-3">

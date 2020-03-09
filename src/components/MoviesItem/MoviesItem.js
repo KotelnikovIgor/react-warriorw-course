@@ -9,7 +9,12 @@ class MoviesItem extends Component {
     };
   }
   render() {
-    const { handlerAddWillWatch, handlerRemoveWillWatch, item } = this.props;
+    const {
+      handlerAddWillWatch,
+      handlerRemoveWillWatch,
+      handlerDeleteMovies,
+      item
+    } = this.props;
     console.log(this.state.willWatch);
     return (
       <div className="card">
@@ -50,6 +55,15 @@ class MoviesItem extends Component {
                 Will Watch
               </button>
             )}
+          </div>
+          <div>
+            <button
+              type="button"
+              onClick={handlerDeleteMovies.bind(null, item)}
+              className="btn btn-secondary"
+            >
+              Delete
+            </button>
           </div>
         </div>
       </div>
