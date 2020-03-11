@@ -1,17 +1,36 @@
 import React, { Component } from "react";
-import { moviesData } from "../moviesData";
+// import { moviesData } from "../moviesData";
 import MovieList from "../components/MovieList/MovieList";
 import MovieListWillWatch from "../components/MovieListWillWatch/MovieListWillWatch";
+import { API_URL, API_KEY_3 } from "../utils/api";
 
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      movies: moviesData,
+      movies: [],
       moviesWillWatch: []
     };
+    console.log("constructor");
   }
+
+  componentDidMount() {
+    console.log("didMount");
+    fetch(`${API_URL}/discover/movie?api_key=${API_KEY_3}`)
+      .then(response => {
+        console.log("then", response);
+        return response.json();
+      })
+      .then(data => {
+        console.log("data ", data);
+        this.setState({
+          movies: data.results
+        });
+      });
+    // console.log("after fetch");
+  }
+
   handlerAddWillWatch = movie => {
     // const updateWillWatch = this.state.moviesWillWatch;
     const { moviesWillWatch } = this.state;
@@ -42,6 +61,7 @@ class App extends Component {
     const { movies, moviesWillWatch } = this.state;
     console.log(this);
     console.log(movies);
+    console.log("render");
     return (
       <div className="container">
         <div className="row ">
