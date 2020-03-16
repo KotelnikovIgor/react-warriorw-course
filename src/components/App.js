@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 // import { moviesData } from "../moviesData";
+import MovieTabs from "../components/MovieTabs/MovieTabs";
 import MovieList from "../components/MovieList/MovieList";
 import MovieListWillWatch from "../components/MovieListWillWatch/MovieListWillWatch";
 import { API_URL, API_KEY_3 } from "../utils/api";
@@ -10,14 +11,17 @@ class App extends Component {
 
     this.state = {
       movies: [],
-      moviesWillWatch: []
+      moviesWillWatch: [],
+      sort_by: "revenue.desc"
     };
     console.log("constructor");
   }
 
   componentDidMount() {
     console.log("didMount");
-    fetch(`${API_URL}/discover/movie?api_key=${API_KEY_3}`)
+    fetch(
+      `${API_URL}/discover/movie?api_key=${API_KEY_3}&sort_by=${this.state.sort_by}`
+    )
       .then(response => {
         console.log("then", response);
         return response.json();
@@ -57,15 +61,26 @@ class App extends Component {
     });
   };
 
+  updateSortBy = value => {
+    this.setState({
+      sort_by: value
+    });
+  };
+
   render() {
-    const { movies, moviesWillWatch } = this.state;
+    const { movies, moviesWillWatch, sort_by } = this.state;
     console.log(this);
     console.log(movies);
     console.log("render");
     return (
       <div className="container">
-        <div className="row ">
+        <div className="row mt-4">
           <div className="col-9">
+            <div className="row mb-4">
+              <div className="col-12">
+                <MovieTabs sort_by={sort_by} updateSortBy={this.updateSortBy} />
+              </div>
+            </div>
             <MovieList
               movies={movies}
               handlerAddWillWatch={this.handlerAddWillWatch}
