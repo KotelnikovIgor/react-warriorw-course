@@ -14,11 +14,24 @@ class App extends Component {
       moviesWillWatch: [],
       sort_by: "revenue.desc"
     };
-    console.log("constructor");
+    console.log("App constructor");
   }
 
   componentDidMount() {
-    console.log("didMount");
+    console.log("App didMount");
+    this.getMovies();
+    // console.log("after fetch");
+  }
+  componentDidUpdate(prevProps, prevState) {
+    console.log("App didUpdate");
+    console.log("prev", prevProps, prevState);
+    console.log("this", this.props, this.state);
+    if (prevState.sort_by !== this.state.sort_by) {
+      this.getMovies();
+    }
+  }
+
+  getMovies = () => {
     fetch(
       `${API_URL}/discover/movie?api_key=${API_KEY_3}&sort_by=${this.state.sort_by}`
     )
@@ -32,8 +45,7 @@ class App extends Component {
           movies: data.results
         });
       });
-    // console.log("after fetch");
-  }
+  };
 
   handlerAddWillWatch = movie => {
     // const updateWillWatch = this.state.moviesWillWatch;
@@ -71,7 +83,7 @@ class App extends Component {
     const { movies, moviesWillWatch, sort_by } = this.state;
     console.log(this);
     console.log(movies);
-    console.log("render");
+    console.log("App render");
     return (
       <div className="container">
         <div className="row mt-4">
