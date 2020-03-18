@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/react-warriorw-course/static/css/main.4a014b45.chunk.css",
+    "main.js": "/react-warriorw-course/static/js/main.85fbb151.chunk.js",
+    "main.js.map": "/react-warriorw-course/static/js/main.85fbb151.chunk.js.map",
+    "runtime-main.js": "/react-warriorw-course/static/js/runtime-main.1ae96570.js",
+    "runtime-main.js.map": "/react-warriorw-course/static/js/runtime-main.1ae96570.js.map",
+    "static/css/2.de424728.chunk.css": "/react-warriorw-course/static/css/2.de424728.chunk.css",
+    "static/js/2.fb48d99d.chunk.js": "/react-warriorw-course/static/js/2.fb48d99d.chunk.js",
+    "static/js/2.fb48d99d.chunk.js.map": "/react-warriorw-course/static/js/2.fb48d99d.chunk.js.map",
+    "index.html": "/react-warriorw-course/index.html",
+    "precache-manifest.022aac606b603eeea1908453818479ae.js": "/react-warriorw-course/precache-manifest.022aac606b603eeea1908453818479ae.js",
+    "service-worker.js": "/react-warriorw-course/service-worker.js",
+    "static/css/2.de424728.chunk.css.map": "/react-warriorw-course/static/css/2.de424728.chunk.css.map",
+    "static/css/main.4a014b45.chunk.css.map": "/react-warriorw-course/static/css/main.4a014b45.chunk.css.map",
+    "static/js/2.fb48d99d.chunk.js.LICENSE.txt": "/react-warriorw-course/static/js/2.fb48d99d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1ae96570.js",
+    "static/css/2.de424728.chunk.css",
+    "static/js/2.fb48d99d.chunk.js",
+    "static/css/main.4a014b45.chunk.css",
+    "static/js/main.85fbb151.chunk.js"
+  ]
+}
